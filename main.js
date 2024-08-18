@@ -3,6 +3,7 @@ const display = document.getElementById("display");
 let numFirst = 0;
 let numNext = 0;
 let operator;
+let displayValue = 0;
 
 function add(a, b) {
     return a + b;
@@ -28,9 +29,13 @@ function operate(operator, numFirst, numNext) {
 }
 
 function numDisplay(input) {
-   const numValue = display.value += input;
+   let displayInput = display.value += input;
+   console.log(displayInput);
+   return displayValue = displayInput;
 }
 
 function clearDisplay() {
     display.value = "";
 }
+
+console.log(displayValue);

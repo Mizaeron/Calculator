@@ -1,5 +1,4 @@
 const display = document.getElementById("display");
-const numbers = document.querySelectorAll(".number");
 
 let numFirst = 0;
 let numNext = 0;
@@ -32,4 +31,6 @@ function numDisplay(input) {
    const numValue = display.value += input;
 }
 
-console.log(numbers);
+function clearDisplay() {
+    display.value = "";
+}

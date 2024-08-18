@@ -24,7 +24,7 @@ body {
     background-color: hsl(0, 0%, 30%);
     color: white;
     font: bold;
-    font-size: 3rem;
+    font-size: 3.5rem;
     height: 80px;
     width: 80px;
     margin: 10px;
@@ -49,4 +49,11 @@ body {
     flex-direction: column;
     margin: 20px 10px;
     gap: 20px;
+}
+
+.buttons button:hover {
+    background-color: hsl(0, 0%, 40%);
+}
+.buttons button:active {
+    background-color: hsl(0, 0%, 50%);
 }

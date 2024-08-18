@@ -1,3 +1,6 @@
+const display = document.getElementById("display");
+const numbers = document.querySelectorAll(".number");
+
 let numFirst = 0;
 let numNext = 0;
 let operator;
@@ -25,4 +28,8 @@ function operate(operator, numFirst, numNext) {
     if (operator == add) return add(numFirst, numNext);
 }
 
-console.log(operate(multiply, 40, 20));
+function numDisplay(input) {
+   const numValue = display.value += input;
+}
+
+console.log(numbers);

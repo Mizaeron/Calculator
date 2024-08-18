@@ -58,7 +58,7 @@ body {
     background-color: hsl(0, 0%, 50%);
 }
 
-#operator {
+.buttons .operator {
     background-color: hsl(40, 50%, 40%);
 }
 

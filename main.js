@@ -28,7 +28,7 @@ function operate(operator, numFirst, numNext) {
     if (operator == divide) return divide(numFirst, numNext);
     if (operator == multiply) return multiply(numFirst, numNext);
     if (operator == subtract) return subtract(numFirst, numNext);
-    if (operator == add) return add(numFirst, numNext);
+    if (operator == "+") return add(numFirst, numNext);
 }
 
 function numDisplay(input) {
@@ -46,12 +46,15 @@ numbers.forEach(number => {
 });
 
 
-btnOperator.forEach(operator => {
-    operator.addEventListener("click", () => {
+btnOperator.forEach(button => {
+    button.addEventListener("click", () => {
         count++;
         firstNum = displayValue;
         console.log(firstNum);
 
-        if (count > 1) console.log(numNext);
+        if (count = 1) {
+            clearDisplay();
+            numDisplay(firstNum);
+        }
     });
 });

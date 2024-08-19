@@ -47,14 +47,20 @@ numbers.forEach(number => {
 
 
 btnOperator.forEach(button => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
         count++;
         firstNum = displayValue;
         console.log(firstNum);
 
-        if (count = 1) {
+        if (count == 1 && operator == "+") {
             clearDisplay();
             numDisplay(firstNum);
         }
+
+        if (count == 2)
     });
 });
+
+function assignOperator(input) {
+    if (input == "+") operator = "+";
+}

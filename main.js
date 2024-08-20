@@ -2,11 +2,11 @@ const display = document.getElementById("display");
 const numbers = document.querySelectorAll(".number");
 const btnOperator = document.querySelectorAll(".operator");
 
-let numFirst = 0;
-let numNext = 0;
+let numFirst = "";
+let numNext = "";
+let result = 0;
 let operator;
-let displayValue = 0;
-let count = 0;
+let displayValue;
 
 function add(a, b) {
     return a + b;
@@ -25,42 +25,55 @@ function divide(a, b) {
 }
 
 function operate(operator, numFirst, numNext) {
-    if (operator == divide) return divide(numFirst, numNext);
-    if (operator == multiply) return multiply(numFirst, numNext);
-    if (operator == subtract) return subtract(numFirst, numNext);
-    if (operator == "+") return add(numFirst, numNext);
-}
-
-function numDisplay(input) {
-   let displayInput = display.value += input;
-   console.log(displayInput);
-   displayValue = displayInput;
+    if (operator == "/") return divide(numFirst, numNext);
+    if (operator == "*") return multiply(numFirst, numNext);
+    if (operator == "-") return subtract(numFirst, numNext);
+    if (operator == "+") return add(parseFloat(numFirst), parseFloat(numNext));
 }
 
 function clearDisplay() {
     display.value = "";
 }
 
-numbers.forEach(number => {
-    number.addEventListener("click", () => console.log(displayValue));
-});
+function resetVar() {
+    numFirst = "";
+    numNext = "";
+    operator = undefined;
+}
 
+numbers.forEach(button => {
+    button.addEventListener("click", (e) => {
+       
+        switch(operator){
+            case undefined:
+                display.value += e.target.innerText;
+                displayValue = display.value;
+                numFirst = displayValue;
+                break;
+            case "+":
+                numNext += e.target.innerText;
+                display.value = numNext;
+                break;
+        }
+
+
+        
+
+        console.log(`display value: ${displayValue}`);
+        console.log(`first number: ${numFirst}`);
+        console.log(`next number: ${numNext}`);
+        console.log(`${operator}`);
+    })
+})
 
 btnOperator.forEach(button => {
     button.addEventListener("click", (e) => {
-        count++;
-        firstNum = displayValue;
-        console.log(firstNum);
+        if (e.target.innerText == "+") operator = "+";
+        if (e.target.innerText == "=") {
+            result = operate(operator, numFirst, numNext);
+            display.value = result;
+        };
+        console.log(result);
+    })
+})
 
-        if (count == 1 && operator == "+") {
-            clearDisplay();
-            numDisplay(firstNum);
-        }
-
-        if (count == 2)
-    });
-});
-
-function assignOperator(input) {
-    if (input == "+") operator = "+";
-}

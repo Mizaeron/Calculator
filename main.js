@@ -72,7 +72,7 @@ numbers.forEach(button => {
                 break;
         }
 
-
+        if (operator == "/" && numNext == 0) display.value = "kek";
         
 
         console.log(`display value: ${displayValue}`);
@@ -84,6 +84,7 @@ numbers.forEach(button => {
 
 btnOperator.forEach(button => {
     button.addEventListener("click", (e) => {
+        
         if (operator != undefined && e.target.innerText == "+") {
             result = operate(operator, numFirst, numNext);
             numFirst = result;
@@ -108,6 +109,7 @@ btnOperator.forEach(button => {
             numNext = "";
             display.value = result;  
         }
+
         if (e.target.innerText == "+") operator = "+";
         if (e.target.innerText == "-") operator = "-";
         if (e.target.innerText == "/") operator = "/";
@@ -115,9 +117,10 @@ btnOperator.forEach(button => {
     
         if (e.target.innerText == "=") {
             result = operate(operator, numFirst, numNext);
-            display.value = result;
-            resetVar();
+            display.value = parseFloat(result.toFixed(5));
         };
+
+      
         console.log(result);
     })
 })

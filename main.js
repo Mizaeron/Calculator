@@ -53,18 +53,22 @@ numbers.forEach(button => {
             case "+":
                 numNext += e.target.innerText;
                 display.value = numNext;
+                displayValue = numNext;
                 break;
             case "-":
                 numNext += e.target.innerText;
                 display.value = numNext;
+                displayValue = numNext;
                 break;
             case "/":
                 numNext += e.target.innerText;
-                    display.value = numNext;
+                display.value = numNext;
+                displayValue = numNext;
                 break;
             case "*":
                 numNext += e.target.innerText;
-                        display.value = numNext;
+                display.value = numNext;
+                displayValue = numNext;
                 break;
         }
 
@@ -80,13 +84,39 @@ numbers.forEach(button => {
 
 btnOperator.forEach(button => {
     button.addEventListener("click", (e) => {
+        if (operator != undefined && e.target.innerText == "+") {
+            result = operate(operator, numFirst, numNext);
+            numFirst = result;
+            numNext = "";
+            display.value = result;  
+        }
+        if (operator != undefined && e.target.innerText == "-") {
+            result = operate(operator, numFirst, numNext);
+            numFirst = result;
+            numNext = "";
+            display.value = result;  
+        }
+        if (operator != undefined && e.target.innerText == "*") {
+            result = operate(operator, numFirst, numNext);
+            numFirst = result;
+            numNext = "";
+            display.value = result;  
+        }
+        if (operator != undefined && e.target.innerText == "/") {
+            result = operate(operator, numFirst, numNext);
+            numFirst = result;
+            numNext = "";
+            display.value = result;  
+        }
         if (e.target.innerText == "+") operator = "+";
         if (e.target.innerText == "-") operator = "-";
         if (e.target.innerText == "/") operator = "/";
         if (e.target.innerText == "*") operator = "+";
+    
         if (e.target.innerText == "=") {
             result = operate(operator, numFirst, numNext);
             display.value = result;
+            resetVar();
         };
         console.log(result);
     })
